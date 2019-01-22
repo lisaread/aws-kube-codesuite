@@ -31,7 +31,7 @@ import (
 const tmp = "/tmp/"
 const buildFile = tmp + "build.zip"
 
-var sess = session.Must(session.NewSession())
+var sess = session.Must(session.NewSession(&aws.Config{Region: aws.String("us-east-1")}))
 var s3Downloader = s3manager.NewDownloader(sess)
 var cp = codepipeline.New(sess)
 
